@@ -7,12 +7,13 @@ import { Role } from 'src/roles/roles.model';
 import { RolesModule } from 'src/roles/roles.module';
 import { AuthModule } from 'src/auth/auth.module';
 import { Item } from 'src/items/items.model';
+import { Category } from './category.model';
 
 @Module({
   controllers: [CategoriesController],
   providers: [CategoriesService],
   imports: [
-    SequelizeModule.forFeature([User, Role, Item]),
+    SequelizeModule.forFeature([User, Role, Item, Category]),
     RolesModule,
     forwardRef(() => AuthModule),
   ],
