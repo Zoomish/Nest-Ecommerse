@@ -11,7 +11,17 @@ async function start() {
     .setTitle('NestJS-Learn')
     .setDescription('Zoomish')
     .setVersion('1.0.0')
-    .addTag('NestJS')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'JWT-auth', // This name here is important for matching up with @ApiBearerAuth() in your controller!
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
