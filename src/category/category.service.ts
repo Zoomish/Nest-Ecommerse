@@ -17,9 +17,9 @@ export class CategoriesService {
     return category;
   }
 
-  async getCategoryByEmail(email) {
+  async getCategoryBytitle(title) {
     const category = await this.categoryRepository.findOne({
-      where: { email },
+      where: { title },
       include: { all: true },
     });
     return category;
