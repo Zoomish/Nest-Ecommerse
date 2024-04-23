@@ -7,7 +7,9 @@ import {
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Товары')
 @Controller('items')
 export class ItemsController {
   constructor(private itemsService: ItemsService) {}

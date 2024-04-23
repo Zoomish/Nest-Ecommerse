@@ -10,7 +10,7 @@ import { User } from 'src/users/users.model';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { Roles } from 'src/auth/roles-auth.decorator';
 
-@ApiTags('Пользователи')
+@ApiTags('Категории')
 @Controller('categories')
 export class CategoriesController {
   constructor(private categoryService: CategoriesService) {}
