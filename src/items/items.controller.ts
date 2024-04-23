@@ -1,21 +1,19 @@
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreatePostDto } from './dto/create-items.dto';
-import { PostsService } from './items.service';
+import { CreateItemDto } from './dto/create-items.dto';
+import { ItemsService } from './items.service';
 import {
   Body,
   Controller,
-  Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 
-@Controller('posts')
-export class PostsController {
-  constructor(private postsService: PostsService) {}
+@Controller('items')
+export class ItemsController {
+  constructor(private itemsService: ItemsService) {}
 
-  @Post()
   @UseInterceptors(FileInterceptor('image'))
-  createPost(@Body() dto: CreatePostDto, @UploadedFile() image) {
-    return this.postsService.create(dto, image);
+  createItem(@Body() dto: CreateItemDto, @UploadedFile() image) {
+    return this.itemsService.create(dto, image);
   }
 }
