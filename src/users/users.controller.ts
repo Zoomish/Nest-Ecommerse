@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UseGuards,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -12,39 +20,39 @@ import { BanUserDto } from './dto/ban-user.dto';
 @ApiTags('Пользователи')
 @Controller('users')
 export class UsersController {
-    constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService) {}
 
-    @ApiOperation({ summary: 'Создание пользователя' })
-    @ApiResponse({ status: 200, type: User })
-    @Post()
-    create(@Body() userDto: CreateUserDto) {
-        return this.userService.createUser(userDto);
-    }
+  @ApiOperation({ summary: 'Создание пользователя' })
+  @ApiResponse({ status: 200, type: User })
+  @Post()
+  create(@Body() userDto: CreateUserDto) {
+    return this.userService.createUser(userDto);
+  }
 
-    @ApiOperation({summary: 'Получить всех пользователей'})
-    @ApiResponse({status: 200, type: [User]})
-    @Roles("ADMIN")
-    @UseGuards(RolesGuard)
-    @Get()
-    getAll() {
-        return this.userService.getAllUsers();
-    }
+  @ApiOperation({ summary: 'Получить всех пользователей' })
+  @ApiResponse({ status: 200, type: [User] })
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
+  @Get()
+  getAll() {
+    return this.userService.getAllUsers();
+  }
 
-    @ApiOperation({summary: 'Выдать роль'})
-    @ApiResponse({status: 200})
-    @Roles("ADMIN")
-    @UseGuards(RolesGuard)
-    @Post('/role')
-    addRole(@Body() dto: AddRoleDto) {
-        return this.userService.addRole(dto);
-    }
+  @ApiOperation({ summary: 'Выдать роль' })
+  @ApiResponse({ status: 200 })
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
+  @Post('/role')
+  addRole(@Body() dto: AddRoleDto) {
+    return this.userService.addRole(dto);
+  }
 
-    @ApiOperation({summary: 'Забанить пользователя'})
-    @ApiResponse({status: 200})
-    @Roles("ADMIN")
-    @UseGuards(RolesGuard)
-    @Post('/ban')
-    banUser(@Body() dto: BanUserDto) {
-        return this.userService.ban(dto);
-    }
+  @ApiOperation({ summary: 'Забанить пользователя' })
+  @ApiResponse({ status: 200 })
+  @Roles('ADMIN')
+  @UseGuards(RolesGuard)
+  @Post('/ban')
+  banUser(@Body() dto: BanUserDto) {
+    return this.userService.ban(dto);
+  }
 }
