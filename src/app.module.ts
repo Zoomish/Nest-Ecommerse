@@ -12,6 +12,8 @@ import { Item } from './items/items.model';
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';
+import { CategoriesModule } from './category/category.module';
+import { Category } from './category/category.model';
 @Module({
   controllers: [],
   providers: [],
@@ -30,11 +32,12 @@ import * as path from 'path';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Role, UserRoles, Item],
+      models: [User, Role, UserRoles, Item, Category],
       autoLoadModels: true,
       synchronize: true,
     }),
     UsersModule,
+    CategoriesModule,
     RolesModule,
     AuthModule,
     ItemsModule,
