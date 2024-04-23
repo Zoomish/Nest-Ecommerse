@@ -23,7 +23,7 @@ export class ItemsService {
     const Item = await this.ItemRepository.create({ ...dto, image: fileName });
     if (category && Item) {
       await Item.$add('category', category);
-      return dto;
+      return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
   }
