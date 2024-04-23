@@ -1,11 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, Length } from 'class-validator';
+import { IsString, Length } from 'class-validator';
 
 export class CreateCategoryDto {
   @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
   @IsString({ message: 'Должно быть строкой' })
-  @IsEmail({}, { message: 'Некорректный email' })
-  readonly email: string;
+  readonly title: string;
 
   @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
   @IsString({ message: 'Должно быть строкой' })
