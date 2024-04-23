@@ -34,4 +34,12 @@ export class CategoriesService {
     });
     return category;
   }
+
+  async getCategoryById(id) {
+    const category = await this.categoryRepository.findOne({
+      where: { id },
+      include: { all: true },
+    });
+    return category;
+  }
 }

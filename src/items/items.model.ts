@@ -12,7 +12,7 @@ import { Category } from 'src/category/category.model';
 interface ItemCreationAttrs {
   title: string;
   description: string;
-  categoryTitle: string;
+  categoryTitle: number;
   image: string;
 }
 @Table({ tableName: 'items' })
@@ -40,8 +40,8 @@ export class Item extends Model<Item, ItemCreationAttrs> {
 
   @ApiProperty({ example: 1, description: 'Id категории' })
   @ForeignKey(() => Category)
-  @Column({ type: DataType.STRING })
-  categoryTitle: string;
+  @Column({ type: DataType.INTEGER })
+  categoryId: number;
 
   @BelongsTo(() => Category)
   category: Category;

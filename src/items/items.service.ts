@@ -14,8 +14,8 @@ export class ItemsService {
   ) {}
 
   async create(dto: CreateItemDto, image: any) {
-    const category = await this.categoriesService.getCategoryBytitle(
-      dto.categoryTitle,
+    const category = await this.categoriesService.getCategoryById(
+      dto.categoryId,
     );
     const fileName = await this.fileService.createFile(image);
     const Item = await this.ItemRepository.create({
