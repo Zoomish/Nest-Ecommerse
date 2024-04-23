@@ -17,13 +17,26 @@ export class ItemsService {
     const category = await this.categoriesService.getCategoryById(
       dto.categoryId,
     );
-    const fileName = await this.fileService.createFile(image);
+    if (image) {
+      console.log(image);
+      const fileName = await this.fileService.createFile(image);
+      const Item = await this.ItemRepository.create({
+        ...dto,
+        image: fileName,
+      });
+      if (category && Item) {
+        await Item.$add('category', category.id);
+        return Item;
+      }
+      throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
+    }
     const Item = await this.ItemRepository.create({
       ...dto,
-      image: fileName,
     });
+    console.log(Item);
+
     if (category && Item) {
-      await Item.$add('category', category.id);
+      await Item.$add('categories', category);
       return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
