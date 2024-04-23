@@ -13,7 +13,7 @@ import { User } from 'src/users/users.model';
 export class AuthService {
   constructor(
     private userService: UsersService,
-    private jwtService: JwtService
+    private jwtService: JwtService,
   ) {}
 
   async login(userDto: CreateUserDto) {
@@ -45,7 +45,7 @@ export class AuthService {
     const user = await this.userService.getUserByEmail(userDto.email);
     const passwordEquals = await bcrypt.compare(
       userDto.password,
-      user.password
+      user.password,
     );
     if (user && passwordEquals) {
       return user;

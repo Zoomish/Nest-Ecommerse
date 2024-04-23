@@ -1,6 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  AllowNull,
   BelongsToMany,
   Column,
   DataType,

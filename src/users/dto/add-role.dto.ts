@@ -5,7 +5,7 @@ export class AddRoleDto {
   readonly value: string;
   @IsNumber(
     { allowNaN: false, allowInfinity: false },
-    { message: 'Должно быть числом' }
+    { message: 'Должно быть числом' },
   )
   readonly userId: number;
 }

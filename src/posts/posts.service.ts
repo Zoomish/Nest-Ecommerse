@@ -8,7 +8,7 @@ import { FilesService } from 'src/files/files.service';
 export class PostsService {
   constructor(
     @InjectModel(Post) private postRepository: typeof Post,
-    private fileService: FilesService
+    private fileService: FilesService,
   ) {}
 
   async create(dto: CreatePostDto, image: any) {
