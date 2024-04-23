@@ -36,14 +36,10 @@ export class CategoriesService {
   }
 
   async getCategoryById(id: number) {
-    console.log(id);
-
     const category = await this.categoryRepository.findOne({
       where: { id },
       include: { all: true },
     });
-    console.log(category);
-
     return category;
   }
 }
