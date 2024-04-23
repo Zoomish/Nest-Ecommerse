@@ -11,8 +11,8 @@ import { Category } from 'src/category/category.model';
 
 interface ItemCreationAttrs {
   title: string;
-  content: string;
-  CategoryId: number;
+  description: string;
+  categoryId: number;
   image: string;
 }
 @Table({ tableName: 'items' })
@@ -32,7 +32,7 @@ export class Item extends Model<Item, ItemCreationAttrs> {
 
   @ApiProperty({ example: 'АААААА', description: 'ОЧень интересный контент' })
   @Column({ type: DataType.STRING, allowNull: false })
-  content: string;
+  description: string;
 
   @ApiProperty({ example: 'Картинка', description: 'Захватывающая картинка' })
   @Column({ type: DataType.STRING, allowNull: true })

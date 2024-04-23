@@ -4,16 +4,21 @@ import { ItemsService } from './items.service';
 import {
   Body,
   Controller,
+  Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Item } from './items.model';
 
 @ApiTags('Товары')
 @Controller('items')
 export class ItemsController {
   constructor(private itemsService: ItemsService) {}
 
+  @ApiOperation({ summary: 'Создать категорию' })
+  @ApiResponse({ status: 200, type: Item })
+  @Post()
   @UseInterceptors(FileInterceptor('image'))
   createItem(@Body() dto: CreateItemDto, @UploadedFile() image) {
     return this.itemsService.create(dto, image);
