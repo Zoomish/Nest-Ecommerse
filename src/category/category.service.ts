@@ -1,25 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './category.model';
+import { Category } from './category.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { RolesService } from '../roles/roles.service';
 
 @Injectable()
 export class CategoriesService {
   constructor(
-    @InjectModel(User) private userRepository: typeof User,
+    @InjectModel(Category) private categoryRepository: typeof Category,
     private roleService: RolesService,
   ) {}
 
   async getAllCategories() {
-    const users = await this.userRepository.findAll({ include: { all: true } });
-    return users;
+    const category = await this.categoryRepository.findAll({
+      include: { all: true },
+    });
+    return category;
   }
 
-  async getUserByEmail(email) {
-    const user = await this.userRepository.findOne({
+  async getCategoryByEmail(email) {
+    const category = await this.categoryRepository.findOne({
       where: { email },
       include: { all: true },
     });
-    return user;
+    return category;
   }
 }
