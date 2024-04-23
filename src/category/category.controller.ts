@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -26,5 +27,10 @@ export class CategoriesController {
   @Get()
   getAll() {
     return this.categoryService.getAllCategories();
+  }
+
+  @Get('/:value')
+  getByValue(@Param('value') value: string) {
+    return this.categoryService.getRoleByValue(value);
   }
 }
