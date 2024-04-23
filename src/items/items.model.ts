@@ -38,7 +38,7 @@ export class Item extends Model<Item, ItemCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: true })
   image: string;
 
-  @ApiProperty({ example: 1, description: 'Id Создателя' })
+  @ApiProperty({ example: 1, description: 'Id категории' })
   @ForeignKey(() => Category)
   @Column({ type: DataType.INTEGER })
   categoryId: number;
