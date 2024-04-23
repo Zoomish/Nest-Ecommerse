@@ -12,7 +12,7 @@ import { Category } from 'src/category/category.model';
 interface ItemCreationAttrs {
   title: string;
   description: string;
-  categoryTitle: number;
+  categoryTitle: string;
   image: string;
 }
 @Table({ tableName: 'items' })

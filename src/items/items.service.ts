@@ -17,10 +17,11 @@ export class ItemsService {
     const category = await this.categoriesService.getCategoryBytitle(
       dto.categoryTitle,
     );
-    console.log(category);
-
     const fileName = await this.fileService.createFile(image);
-    const Item = await this.ItemRepository.create({ ...dto, image: fileName });
+    const Item = await this.ItemRepository.create({
+      ...dto,
+      image: fileName,
+    });
     if (category && Item) {
       await Item.$add('category', category);
       return Item;
