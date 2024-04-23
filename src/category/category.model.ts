@@ -22,7 +22,7 @@ export class Category extends Model<Category, CategoryCreationAttrs> {
   title: string;
 
   @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-  @Column({ type: DataType.STRING, allowNull: false })
+  @Column({ type: DataType.STRING, allowNull: true })
   image: string;
 
   @HasMany(() => Item)
