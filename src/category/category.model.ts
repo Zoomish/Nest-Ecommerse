@@ -1,15 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  BelongsToMany,
-  Column,
-  DataType,
-  HasMany,
-  Model,
-  Table,
-} from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
 import { Item } from 'src/items/items.model';
-import { Role } from 'src/roles/roles.model';
-import { CategoryRoles } from 'src/roles/user-roles.model';
 
 interface CategoryCreationAttrs {
   email: string;
@@ -33,9 +24,6 @@ export class Category extends Model<Category, CategoryCreationAttrs> {
   @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
-
-  @BelongsToMany(() => Role, () => CategoryRoles)
-  roles: Role[];
 
   @HasMany(() => Item)
   items: Item[];
