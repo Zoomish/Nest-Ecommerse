@@ -27,4 +27,11 @@ export class ItemsService {
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
   }
+
+  async getAllItems() {
+    const category = await this.ItemRepository.findAll({
+      include: { all: true },
+    });
+    return category;
+  }
 }

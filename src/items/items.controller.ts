@@ -4,6 +4,7 @@ import { ItemsService } from './items.service';
 import {
   Body,
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -22,5 +23,13 @@ export class ItemsController {
   @UseInterceptors(FileInterceptor('image'))
   createItem(@Body() dto: CreateItemDto, @UploadedFile() image) {
     return this.itemsService.create(dto, image);
+  }
+
+  @ApiOperation({ summary: 'Создать категорию' })
+  @ApiResponse({ status: 200, type: Item })
+  @Get()
+  @UseInterceptors(FileInterceptor('image'))
+  getAll() {
+    return this.itemsService.getAllItems();
   }
 }
