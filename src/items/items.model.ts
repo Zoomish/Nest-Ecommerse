@@ -40,8 +40,8 @@ export class Item extends Model<Item, ItemCreationAttrs> {
 
   @ApiProperty({ example: 1, description: 'Id категории' })
   @ForeignKey(() => Category)
-  @Column({ type: DataType.INTEGER })
-  categoryTitle: number;
+  @Column({ type: DataType.STRING })
+  categoryTitle: string;
 
   @BelongsTo(() => Category)
   category: Category;
