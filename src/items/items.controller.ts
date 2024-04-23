@@ -26,9 +26,8 @@ export class ItemsController {
   }
 
   @ApiOperation({ summary: 'Создать категорию' })
-  @ApiResponse({ status: 200, type: Item })
+  @ApiResponse({ status: 200, type: [Item] })
   @Get()
-  @UseInterceptors(FileInterceptor('image'))
   getAll() {
     return this.itemsService.getAllItems();
   }
