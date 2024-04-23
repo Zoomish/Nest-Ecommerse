@@ -25,7 +25,6 @@ export class ItemsService {
         image: fileName,
       });
       if (category && Item) {
-        await Item.$add('category', category.id);
         return Item;
       }
       throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
@@ -33,10 +32,8 @@ export class ItemsService {
     const Item = await this.ItemRepository.create({
       ...dto,
     });
-    console.log(Item);
 
     if (category && Item) {
-      await Item.$add('category', category);
       return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
