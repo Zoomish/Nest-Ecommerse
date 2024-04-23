@@ -1,25 +1,22 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  AllowNull,
   BelongsTo,
-  BelongsToMany,
   Column,
   DataType,
   ForeignKey,
-  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { User } from 'src/users/users.model';
 
-interface PostCreationAttrs {
+interface ItemCreationAttrs {
   title: string;
   content: string;
   userId: number;
   image: string;
 }
-@Table({ tableName: 'posts' })
-export class Post extends Model<Post, PostCreationAttrs> {
+@Table({ tableName: 'items' })
+export class Item extends Model<Item, ItemCreationAttrs> {
   @ApiProperty({ example: 1, description: 'Уникальный идентефикатор' })
   @Column({
     type: DataType.INTEGER,

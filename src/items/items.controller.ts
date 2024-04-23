@@ -1,6 +1,6 @@
 import { FileInterceptor } from '@nestjs/platform-express';
-import { CreatePostDto } from './dto/create-post.dto';
-import { PostsService } from './posts.service';
+import { CreatePostDto } from './dto/create-items.dto';
+import { PostsService } from './items.service';
 import {
   Body,
   Controller,
