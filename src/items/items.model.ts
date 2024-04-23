@@ -44,5 +44,5 @@ export class Item extends Model<Item, ItemCreationAttrs> {
   categoryId: number;
 
   @BelongsTo(() => Category)
-  category: Category['id'];
+  category: Category;
 }
