@@ -31,6 +31,6 @@ export class CategoriesController {
 
   @Get('/:value')
   getByValue(@Param('value') value: string) {
-    return this.categoryService.getRoleByValue(value);
+    return this.categoryService.getCategoryBytitle(value);
   }
 }
