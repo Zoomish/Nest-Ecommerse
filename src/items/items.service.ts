@@ -15,7 +15,7 @@ export class ItemsService {
 
   async create(dto: CreateItemDto, image: any) {
     const category = await this.categoriesService.getCategoryBytitle(
-      dto.categoryId,
+      dto.categoryTitle,
     );
     console.log(category);
 
