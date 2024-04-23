@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Item } from './items.model';
 import { CreateItemDto } from './dto/create-items.dto';
@@ -21,6 +21,10 @@ export class ItemsService {
 
     const fileName = await this.fileService.createFile(image);
     const Item = await this.ItemRepository.create({ ...dto, image: fileName });
-    return Item;
+    if (category && Item) {
+      await Item.$add('category', category);
+      return dto;
+    }
+    throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
   }
 }
