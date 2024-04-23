@@ -23,7 +23,7 @@ export class ItemsService {
       image: fileName,
     });
     if (category && Item) {
-      await Item.$add('category', category);
+      await Item.$add('category', category.id);
       return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
