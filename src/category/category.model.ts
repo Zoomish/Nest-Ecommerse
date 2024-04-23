@@ -4,7 +4,7 @@ import { Item } from 'src/items/items.model';
 
 interface CategoryCreationAttrs {
   title: string;
-  password: string;
+  image: string;
 }
 @Table({ tableName: 'category' })
 export class Category extends Model<Category, CategoryCreationAttrs> {
@@ -23,7 +23,7 @@ export class Category extends Model<Category, CategoryCreationAttrs> {
 
   @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
   @Column({ type: DataType.STRING, allowNull: false })
-  password: string;
+  image: string;
 
   @HasMany(() => Item)
   items: Item[];
