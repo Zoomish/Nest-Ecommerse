@@ -1,5 +1,5 @@
 import { Module, forwardRef } from '@nestjs/common';
-import { CategoriesController } from './category';
+import { CategoriesController } from './category.controller';
 import { CategoriesService } from './category.service';
 import { User } from 'src/users/users.model';
 import { SequelizeModule } from '@nestjs/sequelize';

@@ -6,7 +6,7 @@ interface CategoryCreationAttrs {
   email: string;
   password: string;
 }
-@Table({ tableName: 'users' })
+@Table({ tableName: 'categories' })
 export class Category extends Model<Category, CategoryCreationAttrs> {
   @ApiProperty({ example: 1, description: 'Уникальный идентефикатор' })
   @Column({
