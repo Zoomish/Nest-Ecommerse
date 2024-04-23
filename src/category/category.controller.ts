@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   Param,
+  Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -17,6 +18,9 @@ import { Category } from './category.model';
 export class CategoriesController {
   constructor(private categoryService: CategoriesService) {}
 
+  @ApiOperation({ summary: 'Создать категорию' })
+  @ApiResponse({ status: 200, type: Category })
+  @Post()
   @UseInterceptors(FileInterceptor('image'))
   createItem(@Body() dto: CreateCategoryDto, @UploadedFile() image) {
     return this.categoryService.createCategory(dto, image);
