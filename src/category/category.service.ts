@@ -4,13 +4,13 @@ import { InjectModel } from '@nestjs/sequelize';
 import { RolesService } from '../roles/roles.service';
 
 @Injectable()
-export class UsersService {
+export class CategoriesService {
   constructor(
     @InjectModel(User) private userRepository: typeof User,
     private roleService: RolesService,
   ) {}
 
-  async getAllUsers() {
+  async getAllCategories() {
     const users = await this.userRepository.findAll({ include: { all: true } });
     return users;
   }

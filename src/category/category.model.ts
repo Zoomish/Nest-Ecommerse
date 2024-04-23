@@ -9,14 +9,14 @@ import {
 } from 'sequelize-typescript';
 import { Item } from 'src/items/items.model';
 import { Role } from 'src/roles/roles.model';
-import { UserRoles } from 'src/roles/user-roles.model';
+import { CategoryRoles } from 'src/roles/user-roles.model';
 
-interface UserCreationAttrs {
+interface CategoryCreationAttrs {
   email: string;
   password: string;
 }
 @Table({ tableName: 'users' })
-export class User extends Model<User, UserCreationAttrs> {
+export class Category extends Model<Category, CategoryCreationAttrs> {
   @ApiProperty({ example: 1, description: 'Уникальный идентефикатор' })
   @Column({
     type: DataType.INTEGER,
@@ -34,7 +34,7 @@ export class User extends Model<User, UserCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
 
-  @BelongsToMany(() => Role, () => UserRoles)
+  @BelongsToMany(() => Role, () => CategoryRoles)
   roles: Role[];
 
   @HasMany(() => Item)
