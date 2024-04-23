@@ -36,7 +36,7 @@ export class ItemsService {
     console.log(Item);
 
     if (category && Item) {
-      await Item.$add('categories', category);
+      await Item.$add('category', category);
       return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
