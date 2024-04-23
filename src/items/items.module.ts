@@ -3,12 +3,12 @@ import { ItemsService } from './items.service';
 import { ItemsController } from './items.controller';
 import { Item } from './items.model';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { User } from 'src/users/users.model';
 import { FilesModule } from 'src/files/files.module';
+import { Category } from 'src/category/category.model';
 
 @Module({
   providers: [ItemsService],
   controllers: [ItemsController],
-  imports: [SequelizeModule.forFeature([User, Item]), FilesModule],
+  imports: [SequelizeModule.forFeature([Item, Category]), FilesModule],
 })
 export class ItemsModule {}

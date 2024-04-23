@@ -7,12 +7,12 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { User } from 'src/users/users.model';
+import { Category } from 'src/category/category.model';
 
 interface ItemCreationAttrs {
   title: string;
   content: string;
-  userId: number;
+  CategoryId: number;
   image: string;
 }
 @Table({ tableName: 'items' })
@@ -39,10 +39,10 @@ export class Item extends Model<Item, ItemCreationAttrs> {
   image: string;
 
   @ApiProperty({ example: 1, description: 'Id Создателя' })
-  @ForeignKey(() => User)
+  @ForeignKey(() => Category)
   @Column({ type: DataType.INTEGER })
-  userId: number;
+  categoryId: number;
 
-  @BelongsTo(() => User)
-  autor: User;
+  @BelongsTo(() => Category)
+  category: Category;
 }
