@@ -6,6 +6,7 @@ import {
   Post,
   Put,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { CategoriesService } from './category.service';
@@ -19,6 +20,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { Category } from './category.model';
 import { Roles } from 'src/auth/roles-auth.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @ApiTags('Категории')
 @Controller('categories')
@@ -27,6 +29,7 @@ export class CategoriesController {
 
   @ApiOperation({ summary: 'Создать категорию' })
   @Roles('ADMIN')
+  @UseGuards(RolesGuard)
   @ApiBearerAuth('JWT-auth')
   @ApiResponse({ status: 200, type: Category })
   @Post()
@@ -51,6 +54,7 @@ export class CategoriesController {
 
   @Roles('ADMIN')
   @ApiBearerAuth('JWT-auth')
+  @UseGuards(RolesGuard)
   @ApiOperation({ summary: 'Обновить категорию' })
   @ApiResponse({ status: 200, type: Category })
   @Put('/:id')

@@ -9,6 +9,7 @@ import {
   Post,
   Put,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import {
@@ -19,6 +20,7 @@ import {
 } from '@nestjs/swagger';
 import { Item } from './items.model';
 import { Roles } from 'src/auth/roles-auth.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @ApiTags('Товары')
 @Controller('items')
@@ -28,6 +30,7 @@ export class ItemsController {
   @ApiOperation({ summary: 'Создать товар' })
   @Roles('ADMIN')
   @ApiBearerAuth('JWT-auth')
+  @UseGuards(RolesGuard)
   @ApiResponse({ status: 200, type: Item })
   @Post()
   @UseInterceptors(FileInterceptor('image'))
@@ -46,6 +49,7 @@ export class ItemsController {
   @ApiResponse({ status: 200, type: Item })
   @Put('/:id')
   @UseInterceptors(FileInterceptor('image'))
+  @UseGuards(RolesGuard)
   @Roles('ADMIN')
   @ApiBearerAuth('JWT-auth')
   updateCategory(
