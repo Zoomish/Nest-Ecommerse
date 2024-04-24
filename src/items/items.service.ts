@@ -45,4 +45,26 @@ export class ItemsService {
     });
     return category;
   }
+
+  async getItemById(id: number) {
+    const item = await this.ItemRepository.findOne({
+      where: { id },
+      include: { all: true },
+    });
+    return item as Item;
+  }
+
+  async updateItem(id: number, dto: CreateItemDto, image: any) {
+    const item = await this.getItemById(id);
+    if (image) {
+      const fileName = await this.fileService.createFile(image);
+      item.image = fileName;
+      item.title = dto.title ? dto.title : item.title;
+      item.price = dto.price ? dto.price : item.price;
+      item.description = dto.description ? dto.description : item.description;
+      item.categoryId = dto.categoryId ? dto.categoryId : item.categoryId;
+      await item.save();
+    }
+    return item;
+  }
 }
