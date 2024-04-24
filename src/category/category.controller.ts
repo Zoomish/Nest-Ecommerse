@@ -40,7 +40,11 @@ export class CategoriesController {
   }
 
   @Put('/:id')
-  updateCategory(@Param('id') id: number) {
-    return this.categoryService.updateCategory(id);
+  updateCategory(
+    @Param('id') id: number,
+    @Body() dto: CreateCategoryDto,
+    @UploadedFile() image,
+  ) {
+    return this.categoryService.updateCategory(id, dto, image);
   }
 }
