@@ -10,7 +10,10 @@ export class CreateItemDto {
   @IsString()
   readonly categoryId: number;
 
-  @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
+  @ApiProperty({
+    example: 'Очень вкусное вино',
+    description: 'Описание товара',
+  })
   @IsString({ message: 'Должно быть строкой' })
   readonly description: string;
 
