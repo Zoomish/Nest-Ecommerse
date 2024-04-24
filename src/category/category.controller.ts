@@ -37,4 +37,9 @@ export class CategoriesController {
   getByValue(@Param('value') value: string) {
     return this.categoryService.getCategoryBytitle(value);
   }
+
+  @Get('/:id')
+  updateCategory(@Param('id') id: number) {
+    return this.categoryService.getCategoryBytitle(id);
+  }
 }
