@@ -18,7 +18,6 @@ export class ItemsService {
       dto.categoryId,
     );
     if (image) {
-      console.log(image);
       const fileName = await this.fileService.createFile(image);
       const Item = await this.ItemRepository.create({
         ...dto,
