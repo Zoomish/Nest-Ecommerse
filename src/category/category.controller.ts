@@ -40,6 +40,7 @@ export class CategoriesController {
   }
 
   @Put('/:id')
+  @UseInterceptors(FileInterceptor('image'))
   updateCategory(
     @Param('id') id: number,
     @Body() dto: CreateCategoryDto,
