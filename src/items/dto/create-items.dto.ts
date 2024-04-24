@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString } from 'class-validator';
 
 export class CreateItemDto {
-  @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
+  @ApiProperty({ example: 'Шато Марго 1589', description: 'Заголовок' })
   @IsString({ message: 'Должно быть строкой' })
   readonly title: string;
 
