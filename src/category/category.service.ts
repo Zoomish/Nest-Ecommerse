@@ -40,11 +40,16 @@ export class CategoriesService {
       where: { id },
       include: { all: true },
     });
-    return category;
+    return category as Category;
   }
 
   async updateCategory(id: number, dto: CreateCategoryDto, image: any) {
-    const category = this.getCategoryById(id);
+    const category = await this.getCategoryById(id);
+    if (image) {
+      const fileName = await this.fileService.createFile(image);
+      category.image = fileName;
+      await category.save();
+    }
     return category;
   }
 }
