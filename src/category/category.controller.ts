@@ -9,10 +9,16 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { CategoriesService } from './category.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { Category } from './category.model';
+import { Roles } from 'src/auth/roles-auth.decorator';
 
 @ApiTags('Категории')
 @Controller('categories')
@@ -20,6 +26,8 @@ export class CategoriesController {
   constructor(private categoryService: CategoriesService) {}
 
   @ApiOperation({ summary: 'Создать категорию' })
+  @Roles('ADMIN')
+  @ApiBearerAuth('JWT-auth')
   @ApiResponse({ status: 200, type: Category })
   @Post()
   @UseInterceptors(FileInterceptor('image'))
@@ -41,7 +49,9 @@ export class CategoriesController {
     return this.categoryService.getCategoryBytitle(value);
   }
 
-  @ApiOperation({ summary: 'Получить категорию по id' })
+  @Roles('ADMIN')
+  @ApiBearerAuth('JWT-auth')
+  @ApiOperation({ summary: 'Обновить категорию' })
   @ApiResponse({ status: 200, type: Category })
   @Put('/:id')
   @UseInterceptors(FileInterceptor('image'))
