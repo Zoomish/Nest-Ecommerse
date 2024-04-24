@@ -5,7 +5,9 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
+  Put,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -30,5 +32,15 @@ export class ItemsController {
   @Get()
   getAll() {
     return this.itemsService.getAllItems();
+  }
+
+  @Put('/:id')
+  @UseInterceptors(FileInterceptor('image'))
+  updateCategory(
+    @Param('id') id: number,
+    @Body() dto: CreateItemDto,
+    @UploadedFile() image,
+  ) {
+    return this.itemsService.updateItem(id, dto, image);
   }
 }
