@@ -4,6 +4,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -38,7 +39,7 @@ export class CategoriesController {
     return this.categoryService.getCategoryBytitle(value);
   }
 
-  @Get('/:id')
+  @Put('/:id')
   updateCategory(@Param('id') id: number) {
     return this.categoryService.updateCategory(id);
   }
