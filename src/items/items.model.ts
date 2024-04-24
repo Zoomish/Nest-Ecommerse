@@ -39,7 +39,7 @@ export class Item extends Model<Item, ItemCreationAttrs> {
   image: string;
 
   @ApiProperty({ example: 1, description: 'Id категории' })
-  @Column({ type: DataType.INTEGER })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   price: number;
 
   @ApiProperty({ example: 1, description: 'Id категории' })
