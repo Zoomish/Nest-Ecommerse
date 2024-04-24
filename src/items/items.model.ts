@@ -38,11 +38,11 @@ export class Item extends Model<Item, ItemCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: true })
   image: string;
 
-  @ApiProperty({ example: 1, description: 'Id категории' })
+  @ApiProperty({ example: 150, description: 'Цена' })
   @Column({ type: DataType.INTEGER, allowNull: false })
   price: number;
 
-  @ApiProperty({ example: 1, description: 'Id категории' })
+  @ApiProperty({ example: 110, description: 'Старая Цена' })
   @Column({ type: DataType.INTEGER })
   oldPrice: number;
 
