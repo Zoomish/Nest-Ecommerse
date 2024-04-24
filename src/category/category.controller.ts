@@ -40,6 +40,6 @@ export class CategoriesController {
 
   @Get('/:id')
   updateCategory(@Param('id') id: number) {
-    return this.categoryService.getCategoryBytitle(id);
+    return this.categoryService.updateCategory(id);
   }
 }

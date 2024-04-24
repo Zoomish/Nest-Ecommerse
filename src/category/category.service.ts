@@ -42,4 +42,12 @@ export class CategoriesService {
     });
     return category;
   }
+
+  async updateCategory(id: number) {
+    const category = await this.categoryRepository.findOne({
+      where: { id },
+      include: { all: true },
+    });
+    return category;
+  }
 }
