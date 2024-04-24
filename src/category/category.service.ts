@@ -43,7 +43,7 @@ export class CategoriesService {
     return category;
   }
 
-  async updateCategory(id: number) {
+  async updateCategory(id: number, dto: CreateCategoryDto, image: any) {
     const category = this.getCategoryById(id);
     return category;
   }
