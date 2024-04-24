@@ -12,10 +12,16 @@ export class CategoriesService {
   ) {}
 
   async createCategory(dto: CreateCategoryDto, image: any) {
-    const fileName = await this.fileService.createFile(image);
+    if (image) {
+      const fileName = await this.fileService.createFile(image);
+      const Item = await this.categoryRepository.create({
+        ...dto,
+        image: fileName,
+      });
+      return Item;
+    }
     const Item = await this.categoryRepository.create({
       ...dto,
-      image: fileName,
     });
     return Item;
   }
