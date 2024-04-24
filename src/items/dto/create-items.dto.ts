@@ -6,7 +6,7 @@ export class CreateItemDto {
   @IsString({ message: 'Должно быть строкой' })
   readonly title: string;
 
-  @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
+  @ApiProperty({ example: 1, description: 'Id категории' })
   @IsString()
   readonly categoryId: number;
 
@@ -23,5 +23,5 @@ export class CreateItemDto {
 
   @ApiProperty({ example: 150, description: 'Старая Цена' })
   @IsString()
-  readonly oldPrice: number;
+  readonly oldPrice?: number;
 }
