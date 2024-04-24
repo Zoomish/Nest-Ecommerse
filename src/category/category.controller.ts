@@ -27,18 +27,22 @@ export class CategoriesController {
     return this.categoryService.createCategory(dto, image);
   }
 
-  @ApiOperation({ summary: 'Получить всех пользователей' })
+  @ApiOperation({ summary: 'Получить все категории' })
   @ApiResponse({ status: 200, type: [Category] })
   @Get()
   getAll() {
     return this.categoryService.getAllCategories();
   }
 
+  @ApiOperation({ summary: 'Получить категорию по значению' })
+  @ApiResponse({ status: 200, type: Category })
   @Get('/:value')
   getByValue(@Param('value') value: string) {
     return this.categoryService.getCategoryBytitle(value);
   }
 
+  @ApiOperation({ summary: 'Получить категорию по id' })
+  @ApiResponse({ status: 200, type: Category })
   @Put('/:id')
   @UseInterceptors(FileInterceptor('image'))
   updateCategory(
