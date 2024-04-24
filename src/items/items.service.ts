@@ -17,9 +17,11 @@ export class ItemsService {
     const category = await this.categoriesService.getCategoryById(
       dto.categoryId,
     );
+    console.log(category);
+
     if (image) {
       const fileName = await this.fileService.createFile(image);
-      if (category && Item) {
+      if (category && Object.keys(dto)) {
         const Item = await this.ItemRepository.create({
           ...dto,
           image: fileName,
@@ -29,7 +31,7 @@ export class ItemsService {
       throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
     }
 
-    if (category && Item) {
+    if (category && Object.keys(dto)) {
       const Item = await this.ItemRepository.create({
         ...dto,
       });
