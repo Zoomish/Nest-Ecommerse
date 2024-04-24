@@ -25,7 +25,7 @@ import { Roles } from 'src/auth/roles-auth.decorator';
 export class ItemsController {
   constructor(private itemsService: ItemsService) {}
 
-  @ApiOperation({ summary: 'Создать категорию' })
+  @ApiOperation({ summary: 'Создать товар' })
   @Roles('ADMIN')
   @ApiBearerAuth('JWT-auth')
   @ApiResponse({ status: 200, type: Item })
@@ -35,13 +35,15 @@ export class ItemsController {
     return this.itemsService.create(dto, image);
   }
 
-  @ApiOperation({ summary: 'Создать категорию' })
+  @ApiOperation({ summary: 'Получить все товары' })
   @ApiResponse({ status: 200, type: [Item] })
   @Get()
   getAll() {
     return this.itemsService.getAllItems();
   }
 
+  @ApiOperation({ summary: 'Обновить товар' })
+  @ApiResponse({ status: 200, type: Item })
   @Put('/:id')
   @UseInterceptors(FileInterceptor('image'))
   @Roles('ADMIN')
