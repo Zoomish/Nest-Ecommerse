@@ -11,8 +11,14 @@ import {
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { Item } from './items.model';
+import { Roles } from 'src/auth/roles-auth.decorator';
 
 @ApiTags('Товары')
 @Controller('items')
@@ -20,6 +26,8 @@ export class ItemsController {
   constructor(private itemsService: ItemsService) {}
 
   @ApiOperation({ summary: 'Создать категорию' })
+  @Roles('ADMIN')
+  @ApiBearerAuth('JWT-auth')
   @ApiResponse({ status: 200, type: Item })
   @Post()
   @UseInterceptors(FileInterceptor('image'))
@@ -36,6 +44,8 @@ export class ItemsController {
 
   @Put('/:id')
   @UseInterceptors(FileInterceptor('image'))
+  @Roles('ADMIN')
+  @ApiBearerAuth('JWT-auth')
   updateCategory(
     @Param('id') id: number,
     @Body() dto: CreateItemDto,
