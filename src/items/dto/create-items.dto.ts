@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNumber, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 
 export class CreateItemDto {
   @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
@@ -7,7 +7,7 @@ export class CreateItemDto {
   readonly title: string;
 
   @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
-  @IsNumber()
+  @IsString()
   readonly categoryId: number;
 
   @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
@@ -15,6 +15,6 @@ export class CreateItemDto {
   readonly description: string;
 
   @ApiProperty({ example: 'test@gmail.com', description: 'Почтовый адрес' })
-  @IsNumber()
+  @IsString()
   readonly price: number;
 }
