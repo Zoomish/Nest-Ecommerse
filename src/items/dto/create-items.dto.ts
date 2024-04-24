@@ -18,7 +18,7 @@ export class CreateItemDto {
   @IsString()
   readonly price: number;
 
-  @ApiProperty({ example: 150, description: 'Цена' })
+  @ApiProperty({ example: 150, description: 'Старая Цена' })
   @IsString()
   readonly oldPrice: number;
 }
