@@ -48,6 +48,7 @@ export class CategoriesService {
     if (image) {
       const fileName = await this.fileService.createFile(image);
       category.image = fileName;
+      category.title = dto.title;
       await category.save();
     }
     return category;
