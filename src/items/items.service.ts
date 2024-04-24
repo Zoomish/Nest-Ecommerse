@@ -19,20 +19,20 @@ export class ItemsService {
     );
     if (image) {
       const fileName = await this.fileService.createFile(image);
-      const Item = await this.ItemRepository.create({
-        ...dto,
-        image: fileName,
-      });
       if (category && Item) {
+        const Item = await this.ItemRepository.create({
+          ...dto,
+          image: fileName,
+        });
         return Item;
       }
       throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
     }
-    const Item = await this.ItemRepository.create({
-      ...dto,
-    });
 
     if (category && Item) {
+      const Item = await this.ItemRepository.create({
+        ...dto,
+      });
       return Item;
     }
     throw new HttpException('User or role not found', HttpStatus.NOT_FOUND);
