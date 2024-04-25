@@ -8,7 +8,7 @@ import { Role } from './roles/roles.model';
 import { UserRoles } from './roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
 import { ItemsModule } from './items/items.module';
-import { Item } from './items/items.model';
+import { Item } from './items/model/items.model';
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';

@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Item } from './items.model';
+import { Item } from './model/items.model';
 import { CreateItemDto } from './dto/create-items.dto';
 import { FilesService } from 'src/files/files.service';
 import { CategoriesService } from 'src/category/category.service';

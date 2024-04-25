@@ -6,7 +6,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { Role } from 'src/roles/roles.model';
 import { RolesModule } from 'src/roles/roles.module';
 import { AuthModule } from 'src/auth/auth.module';
-import { Item } from 'src/items/items.model';
+import { Item } from 'src/items/model/items.model';
 import { Category } from './category.model';
 import { FilesModule } from 'src/files/files.module';
 import { UserRoles } from 'src/roles/user-roles.model';
