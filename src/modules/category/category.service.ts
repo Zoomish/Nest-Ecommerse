@@ -14,16 +14,16 @@ export class CategoriesService {
   async createCategory(dto: CreateCategoryDto, image: any) {
     if (image) {
       const fileName = await this.fileService.createFile(image);
-      const Item = await this.categoryRepository.create({
+      const category = await this.categoryRepository.create({
         ...dto,
         image: fileName,
       });
-      return Item;
+      return category;
     }
-    const Item = await this.categoryRepository.create({
+    const category = await this.categoryRepository.create({
       ...dto,
     });
-    return Item;
+    return category;
   }
 
   async getAllCategories() {
