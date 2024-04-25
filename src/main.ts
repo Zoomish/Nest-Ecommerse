@@ -18,9 +18,9 @@ async function start() {
     }),
   );
   const config = new DocumentBuilder()
-    .setTitle('NestJS-Learn')
-    .setDescription('Zoomish')
-    .setVersion('1.0.0')
+    .setTitle('NestJS-Ecommerce')
+    .setDescription('Zoomish backend for ecommerce')
+    .setVersion('3.4.2')
     .addBearerAuth(
       {
         type: 'http',
