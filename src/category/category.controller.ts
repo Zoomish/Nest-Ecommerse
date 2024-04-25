@@ -19,7 +19,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { Category } from './model/category.model';
-import { Roles } from 'src/auth/roles-auth.decorator';
+import { Roles } from 'src/decorators/roles-auth.decorator';
 import { RolesGuard } from 'src/guards/roles.guard';
 
 @ApiTags('Категории')
