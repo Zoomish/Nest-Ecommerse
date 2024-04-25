@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
-import { Item } from 'src/items/model/items.model';
+import { Item } from 'src/modules/items/model/items.model';
 
 interface CategoryCreationAttrs {
   title: string;
