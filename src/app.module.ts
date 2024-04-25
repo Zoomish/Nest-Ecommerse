@@ -1,19 +1,19 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { UsersModule } from './users/users.module';
+import { UsersModule } from './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { User } from './users/model/users.model';
-import { RolesModule } from './roles/roles.module';
-import { Role } from './roles/model/roles.model';
-import { UserRoles } from './roles/model/user-roles.model';
-import { AuthModule } from './auth/auth.module';
-import { ItemsModule } from './items/items.module';
-import { Item } from './items/model/items.model';
-import { FilesModule } from './files/files.module';
+import { User } from './modules/users/model/users.model';
+import { RolesModule } from './modules/roles/roles.module';
+import { Role } from './modules/roles/model/roles.model';
+import { UserRoles } from './modules/roles/model/user-roles.model';
+import { AuthModule } from './modules/auth/auth.module';
+import { ItemsModule } from './modules/items/items.module';
+import { Item } from './modules/items/model/items.model';
+import { FilesModule } from './modules/files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';
-import { CategoriesModule } from './category/category.module';
-import { Category } from './category/model/category.model';
+import { CategoriesModule } from './modules/category/category.module';
+import { Category } from './modules/category/model/category.model';
 @Module({
   controllers: [],
   providers: [],
