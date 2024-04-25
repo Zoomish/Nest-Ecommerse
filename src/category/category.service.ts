@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Category } from './category.model';
+import { Category } from './model/category.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { FilesService } from 'src/files/files.service';

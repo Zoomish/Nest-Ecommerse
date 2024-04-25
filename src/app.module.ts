@@ -13,7 +13,7 @@ import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';
 import { CategoriesModule } from './category/category.module';
-import { Category } from './category/category.model';
+import { Category } from './category/model/category.model';
 @Module({
   controllers: [],
   providers: [],
