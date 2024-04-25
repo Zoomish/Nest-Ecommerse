@@ -42,12 +42,8 @@ async function start() {
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(PORT, async () => {
-    console.log(
-      `Docs run on ${(await app.getUrl()).replace('[::1]', `${PORT}`)}`,
-    );
-    console.log(
-      `Server run on ${(await app.getUrl()).replace('[::1]', `${PORT}`)}/api/docs`,
-    );
+    console.log(`Docs run on ${await app.getUrl()}`);
+    console.log(`Server run on ${await app.getUrl()}/api/docs`);
   });
 }
 
