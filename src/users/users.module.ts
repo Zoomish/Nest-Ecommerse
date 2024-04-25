@@ -4,7 +4,7 @@ import { User } from './model/users.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Role } from 'src/roles/model/roles.model';
 import { RolesModule } from 'src/roles/roles.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'src/modules/auth/auth.module';
 import { UserRoles } from 'src/roles/model/user-roles.model';
 
 @Module({

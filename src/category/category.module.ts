@@ -5,7 +5,7 @@ import { User } from 'src/users/model/users.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Role } from 'src/roles/model/roles.model';
 import { RolesModule } from 'src/roles/roles.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'src/modules/auth/auth.module';
 import { Item } from 'src/items/model/items.model';
 import { Category } from './model/category.model';
 import { FilesModule } from 'src/files/files.module';
