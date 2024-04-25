@@ -8,8 +8,7 @@ async function start() {
   const app = await NestFactory.create(AppModule);
   const PORT = Number(process.env.PORT) || 5000;
   const user = {
-    name: process.env.LOGIN,
-    pass: process.env.PASSWORD,
+    admin: process.env.PASSWORD,
   };
   app.use(
     // Paths you want to protect with basic auth
