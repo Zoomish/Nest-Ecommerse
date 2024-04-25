@@ -4,9 +4,9 @@ import { ItemsController } from './items.controller';
 import { Item } from './model/items.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { FilesModule } from 'src/modules/files/files.module';
-import { Category } from 'src/category/model/category.model';
-import { CategoriesModule } from 'src/category/category.module';
-import { UserRoles } from 'src/roles/model/user-roles.model';
+import { Category } from 'src/modules/category/model/category.model';
+import { CategoriesModule } from 'src/modules/category/category.module';
+import { UserRoles } from 'src/modules/roles/model/user-roles.model';
 import { AuthModule } from 'src/modules/auth/auth.module';
 
 @Module({

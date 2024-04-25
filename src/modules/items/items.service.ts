@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Item } from './model/items.model';
 import { CreateItemDto } from './dto/create-items.dto';
 import { FilesService } from 'src/modules/files/files.service';
-import { CategoriesService } from 'src/category/category.service';
+import { CategoriesService } from 'src/modules/category/category.service';
 
 @Injectable()
 export class ItemsService {
