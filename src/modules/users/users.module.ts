@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { User } from './model/users.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Role } from 'src/roles/model/roles.model';
-import { RolesModule } from 'src/roles/roles.module';
+import { RolesModule } from 'src/modules/roles/models/roles.model';
 import { AuthModule } from 'src/modules/auth/auth.module';
 import { UserRoles } from 'src/modules/roles/model/user-roles.model';
 
