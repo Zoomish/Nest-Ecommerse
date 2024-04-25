@@ -23,7 +23,7 @@ export class CategoriesService {
     const category = await this.categoryRepository.create({
       ...dto,
     });
-    return category;
+    return category as Category;
   }
 
   async getAllCategories() {
