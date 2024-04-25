@@ -20,7 +20,7 @@ import {
 } from '@nestjs/swagger';
 import { Item } from './model/items.model';
 import { Roles } from 'src/auth/roles-auth.decorator';
-import { RolesGuard } from 'src/auth/roles.guard';
+import { RolesGuard } from 'src/guards/roles.guard';
 
 @ApiTags('Товары')
 @Controller('items')
