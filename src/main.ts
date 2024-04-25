@@ -7,16 +7,16 @@ import * as basicAuth from 'express-basic-auth';
 async function start() {
   const app = await NestFactory.create(AppModule);
   const PORT = Number(process.env.PORT) || 5000;
-  const LOGIN = process.env.LOGIN;
-  const PASSWORD = process.env.PASSWORD;
+  const user = {
+    name: process.env.LOGIN,
+    pass: process.env.PASSWORD,
+  };
   app.use(
     // Paths you want to protect with basic auth
     '/api/docs*',
     basicAuth({
       challenge: true,
-      users: {
-        LOGIN: PASSWORD,
-      },
+      users: user,
     }),
   );
   const config = new DocumentBuilder()
