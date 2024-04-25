@@ -2,11 +2,21 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
+import * as basicAuth from 'express-basic-auth';
 
 async function start() {
   const app = await NestFactory.create(AppModule);
   const PORT = Number(process.env.PORT) || 5000;
-
+  app.use(
+    // Paths you want to protect with basic auth
+    '/api/docs*',
+    basicAuth({
+      challenge: true,
+      users: {
+        yourUserName: 'p4ssw0rd',
+      },
+    }),
+  );
   const config = new DocumentBuilder()
     .setTitle('NestJS-Learn')
     .setDescription('Zoomish')
