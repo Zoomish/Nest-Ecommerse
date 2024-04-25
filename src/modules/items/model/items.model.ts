@@ -7,7 +7,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
-import { Category } from 'src/category/model/category.model';
+import { Category } from 'src/modules/category/model/category.model';
 
 interface ItemCreationAttrs {
   title: string;
