@@ -17,8 +17,6 @@ export class ItemsService {
     const category = await this.categoriesService.getCategoryById(
       dto.categoryId,
     );
-    console.log(category);
-
     if (image) {
       const fileName = await this.fileService.createFile(image);
       if (category && Object.keys(dto)) {
