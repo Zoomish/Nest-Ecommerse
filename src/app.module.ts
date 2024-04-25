@@ -9,7 +9,7 @@ import { UserRoles } from './roles/model/user-roles.model';
 import { AuthModule } from './modules/auth/auth.module';
 import { ItemsModule } from './items/items.module';
 import { Item } from './items/model/items.model';
-import { FilesModule } from './files/files.module';
+import { FilesModule } from './modules/files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as path from 'path';
 import { CategoriesModule } from './category/category.module';

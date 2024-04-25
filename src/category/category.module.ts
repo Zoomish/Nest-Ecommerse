@@ -8,7 +8,7 @@ import { RolesModule } from 'src/roles/roles.module';
 import { AuthModule } from 'src/modules/auth/auth.module';
 import { Item } from 'src/items/model/items.model';
 import { Category } from './model/category.model';
-import { FilesModule } from 'src/files/files.module';
+import { FilesModule } from 'src/modules/files/files.module';
 import { UserRoles } from 'src/roles/model/user-roles.model';
 
 @Module({

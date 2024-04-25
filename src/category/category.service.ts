@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Category } from './model/category.model';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { FilesService } from 'src/files/files.service';
+import { FilesService } from 'src/modules/files/files.service';
 
 @Injectable()
 export class CategoriesService {
