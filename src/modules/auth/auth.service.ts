@@ -16,9 +16,8 @@ export class AuthService {
     return this.generateToken(user);
   }
 
-  async validateToken(token: string) {
-    console.log(token);
-    return token;
+  async validateToken() {
+    return 'valid';
   }
 
   private async generateToken(user: User) {

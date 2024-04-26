@@ -18,7 +18,7 @@ export class AuthController {
   @Roles('ADMIN')
   @UseGuards(RolesGuard)
   @Get('/validate/token')
-  validate(@Body() token: string) {
-    return this.authService.validateToken(token);
+  validate() {
+    return this.authService.validateToken();
   }
 }
