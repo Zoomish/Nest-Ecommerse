@@ -10,6 +10,7 @@ async function start() {
   const user = {
     admin: process.env.PASSWORD,
   };
+  app.enableCors();
   app.use(
     // Paths you want to protect with basic auth
     '/api/docs*',
