@@ -16,6 +16,11 @@ export class AuthService {
     return this.generateToken(user);
   }
 
+  async validateToken(token: string) {
+    console.log(token);
+    return token;
+  }
+
   private async generateToken(user: User) {
     const payload = { email: user.email, id: user.id, roles: user.roles };
     return {
