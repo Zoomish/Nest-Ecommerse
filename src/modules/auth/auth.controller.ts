@@ -12,4 +12,9 @@ export class AuthController {
   login(@Body() userDto: CreateUserDto) {
     return this.authService.login(userDto);
   }
+
+  @Post('/validate/token')
+  validate(@Body() token: string) {
+    return this.authService.validateToken(token);
+  }
 }
