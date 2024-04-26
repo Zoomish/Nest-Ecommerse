@@ -17,7 +17,9 @@ export class AuthService {
   }
 
   async validateToken() {
-    return 'valid';
+    return {
+      message: 'valid',
+    };
   }
 
   private async generateToken(user: User) {
