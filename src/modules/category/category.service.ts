@@ -53,7 +53,7 @@ export class CategoriesService {
     const category = await this.getCategoryById(id);
     if (image) {
       const fileName = await this.fileService.createFile(image);
-      category.image = fileName;
+      category.image = window.location.origin + fileName;
       category.title = dto.title;
       await category.save();
     }
