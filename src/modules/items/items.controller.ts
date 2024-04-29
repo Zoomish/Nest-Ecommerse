@@ -45,6 +45,13 @@ export class ItemsController {
     return this.itemsService.getAllItems();
   }
 
+  @ApiOperation({ summary: 'Получить все товары' })
+  @ApiResponse({ status: 200, type: Item })
+  @Get('/:id')
+  getItemById(@Param('id') id: number) {
+    return this.itemsService.getItemById(id);
+  }
+
   @ApiOperation({ summary: 'Обновить товар' })
   @ApiResponse({ status: 200, type: Item })
   @Put('/:id')
